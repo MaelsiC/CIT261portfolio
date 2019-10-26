@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>TA02 HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  </head>
+
+  <body>
+    <input type="text" id="input"><br/>
+    <input type="text" id="input2">
+    <br/><button type="button" onclick="inputReader(fun)">Submit</button>
+    <button type="button" onclick="inputReader(add)">+</button>
+    <button type="button" onclick="inputReader(sub)">-</button>
+
+    <div id="outputs">
+    </div>
+
+    <script>
+      function inputReader (callback) {
+        var num1 = parseInt(document.getElementById("input").value);
+
+        var num2 = parseInt(document.getElementById("input2").value);
+
+        // switch (op) {
+        //   case 's':
+        //     var result = fun(num1);
+        //     break;
+        //   case '+':
+        //     var result = add(num1, num2);
+        // }
+
+        var result= callback(num1, num2);
+
+        document.getElementById("outputs").innerHTML = result;
+      }
+
+      function fun (num) {
+        var sum = 0;
+        for (var i = 1; i <= num; i++) {
+          sum += i;
+        }
+
+        return sum;
+      }
+
+      function add (a, b) {
+        var sum = a + b;
+        return sum;
+      }
+
+      const sub = (a, b) => a - b;
+    </script>
+  </body>
+</html>

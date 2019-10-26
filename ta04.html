@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Jordon Hill
+cit 261
+ta04.html
+-->
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <link rel="stylesheet" href="ta04.css">
+   </head>
+   <body>
+      <table>
+         <tr>
+            <td>
+               <button id="c1" type="button"></button>
+            </td>
+            <td>
+               <button id="c2" type="button"></button>
+            </td>
+            <td>
+               <button id="c3" type="button"></button>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <button id="c4" type="button"></button>
+            </td>
+            <td>
+               <button id="c5" type="button"></button>
+            </td>
+            <td>
+               <button id="c6" type="button"></button>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <button id="c7" type="button"></button>
+            </td>
+            <td>
+               <button id="c8" type="button"></button>
+            </td>
+            <td>
+               <button id="c9" type="button"></button>
+            </td>
+         </tr>
+      </table>
+      <button id="reset" type="button" onclick="reset()">Reset</button>
+      <script>
+         var xo = "x";
+         
+         document.getElementById("c1").addEventListener("click", makeMove);
+         document.getElementById("c2").addEventListener("click", makeMove);
+         document.getElementById("c3").addEventListener("click", makeMove);
+         document.getElementById("c4").addEventListener("click", makeMove);
+         document.getElementById("c5").addEventListener("click", makeMove);
+         document.getElementById("c6").addEventListener("click", makeMove);
+         document.getElementById("c7").addEventListener("click", makeMove);
+         document.getElementById("c8").addEventListener("click", makeMove);
+         document.getElementById("c9").addEventListener("click", makeMove);
+         
+         function makeMove(e) {
+            console.log("here");
+            e.target.innerHTML = xo;
+            checkWinner();
+            if (xo == "x")
+               xo = "o";
+            else
+               xo = "x";
+            e.target.disabled = true;
+         }
+
+         function checkWinner() {
+            c1 = document.getElementById("c1").innerHTML;
+            c2 = document.getElementById("c2").innerHTML;
+            c3 = document.getElementById("c3").innerHTML;
+            c4 = document.getElementById("c4").innerHTML;
+            c5 = document.getElementById("c5").innerHTML;
+            c6 = document.getElementById("c6").innerHTML;
+            c7 = document.getElementById("c7").innerHTML;
+            c8 = document.getElementById("c8").innerHTML;
+            c9 = document.getElementById("c9").innerHTML;
+
+            if (c1 == c2 && c2 == c3 && c3 != "")
+               alert(xo + " won!");
+            if (c4 == c5 && c5 == c6 && c6 != "")
+               alert(xo + " won!");
+            if (c7 == c8 && c8 == c9 && c9 != "")
+               alert(xo + " won!");
+            if (c1 == c4 && c4 == c7 && c7 != "")
+               alert(xo + " won!");
+            if (c2 == c5 && c5 == c8 && c8 != "")
+               alert(xo + " won!");
+            if (c3 == c6 && c6 == c9 && c9 != "")
+               alert(xo + " won!");
+            if (c1 == c5 && c5 == c9 && c9 != "")
+               alert(xo + " won!");
+            if (c3 == c5 && c5 == c7 && c7 != "")
+               alert(xo + " won!");
+         }
+
+         function reset() {
+            for (let i = 1; i < 10; i++) {
+               document.getElementById("c"+i).innerHTML = "";
+               document.getElementById("c"+i).disabled = false;
+               xo = "x";
+            }
+         }
+      </script>
+   </body>
+</html>

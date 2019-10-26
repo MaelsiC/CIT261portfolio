@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title id="title">Week 2 practice</title>
+    <meta id="meta" name="description" content="Practice exercises for Week 2">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+    <main>
+        <h1>Week 2 code</h1>
+    </main>
+    <script>
+        //3.2 RECURSION
+        function isEven(i) {
+            if (i == 0) return true;
+            else if (i == 1) return false;
+            else if (i < 0) return isEven(-i);
+            else return isEven(i - 2);
+        }
+
+        console.log(isEven(50));
+        // → true
+        console.log(isEven(75));
+        // → false
+        console.log(isEven(-1));
+        // → false
+
+
+        //3.3 BEAN COUNTING
+        function countChar(string, channel) {
+            let count = 0;
+            for (let i = 0; i < string.length; i++) {
+                if (string[i] == channel) {
+                    count += 1;
+                }
+            }
+            return count;
+        }
+
+        function countBs(string) {
+            return countChar(string, "B");
+        }
+        console.log(countBs("BBC"));
+        // → 2
+        console.log(countChar("kakkerlak", "k"));
+        // → 4
+
+
+        //4.1 THE SUM OF A RANGE
+        function range(start, end, step = start < end ? 1 : -1) {
+            let array = [];
+            if (step > 0) {
+                for (let i = start; i <= end; i += step) array.push(i);
+                    } else {
+                        for (let i = start; i >= end; i += step) array.push(i);
+                    }
+                    return array;
+                }
+
+                function sum(array) {
+                    let total = 0;
+                    for (let value of array) {
+                        total += value;
+                    }
+                    return total;
+                }
+        console.log(range(1, 10))
+        // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log(range(5, 2, -1));
+        // → [5, 4, 3, 2]
+        console.log(sum(range(1, 10)));
+        // → 55
+    </script>
+</body>
+
+</html>
