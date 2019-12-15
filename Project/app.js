@@ -10,7 +10,7 @@ const optionList = document.querySelector("#optionList");
 const url = "https://opentdb.com/api.php?amount=50&category=15&type=boolean";
 const submitBtn = document.querySelector("#submitBtn");
 const playAgainBtn = document.querySelector("#playAgainBtn");
-const questionAmount = 19;
+const questionAmount = 5;
 
 // Fetch Data from Trivia API
 fetch(url)
