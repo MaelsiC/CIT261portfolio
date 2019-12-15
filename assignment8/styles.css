@@ -1,0 +1,14 @@
+body {
+    margin: 0 auto;
+    width: 90%;
+    font-size: 2em;
+}
+
+button {
+    font-size: 1em;
+    border: 4px;
+}
+
+#poke-list li {
+    padding: 15px;
+}
